@@ -1,0 +1,114 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+}
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model category {
+  sector_id   String? @db.VarChar(4)
+  sector      String? @db.VarChar(32)
+  industry_id String? @db.VarChar(8)
+  industry    String? @db.VarChar(64)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model interval_1d {
+  country        String?
+  code           String?
+  datetime       String?
+  open           Float?
+  high           Float?
+  low            Float?
+  close          Float?
+  adjusted_close Float?
+  volume         BigInt?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model interval_1m {
+  country   String?
+  code      String?
+  timestamp BigInt?
+  gmtoffset BigInt?
+  datetime  String?
+  open      Float?
+  high      Float?
+  low       Float?
+  close     Float?
+  volume    Float?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model interval_5m {
+  country   String?
+  code      String?
+  timestamp BigInt?
+  gmtoffset BigInt?
+  datetime  String?
+  open      Float?
+  high      Float?
+  low       Float?
+  close     Float?
+  volume    Float?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model overview {
+  code               String?
+  market_cap         Float?
+  revenue            Float?
+  net_income         Float?
+  shares_out         Float?
+  eps                Float?
+  pe_ratio           Float?
+  forward_pe         Float?
+  dividend           Float?
+  exdividend_date    String?
+  volume             String?
+  open               String?
+  previous_close     String?
+  day_range          String?
+  w_range            String? @map("52w_range")
+  beta               Float?
+  analysts           String?
+  price_target       Float?
+  earnings_date      String?
+  employees          Float?
+  industry           String?
+  sector             String?
+  stock_exchange     String?
+  ceo                String?
+  address            String?
+  phone              String?
+  website            String?
+  fiscal_year        String?
+  reporting_currency String?
+  cik_code           String?
+  cusip_number       String?
+  isin_number        String?
+  employer_id        String?
+  sic_code           String?
+  key_executives     String?
+  latest_filings     String?
+  country            String?
+  ipo_date           String?
+
+  @@ignore
+}
