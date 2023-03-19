@@ -1,0 +1,27 @@
+{
+  "name": "stock_graphqlserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuzammilIrshad/Stock_GraphqlServer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MuzammilIrshad/Stock_GraphqlServer/issues"
+  },
+  "homepage": "https://github.com/MuzammilIrshad/Stock_GraphqlServer#readme",
+  "dependencies": {
+    "apollo-server": "^3.12.0",
+    "dotenv": "^16.0.3",
+    "graphql": "^16.6.0",
+    "pg": "^8.10.0"
+  }
+}
