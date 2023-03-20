@@ -20,11 +20,9 @@
   },
   "homepage": "https://github.com/MuzammilIrshad/Stock_GraphqlServer#readme",
   "dependencies": {
-    "@prisma/client": "^4.11.0",
     "apollo-server": "^3.12.0",
-    "graphql": "^16.6.0"
-  },
-  "devDependencies": {
-    "prisma": "^4.11.0"
+    "dotenv": "^16.0.3",
+    "graphql": "^16.6.0",
+    "pg": "^8.10.0"
   }
 }
