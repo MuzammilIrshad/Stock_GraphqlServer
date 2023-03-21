@@ -1,0 +1,13 @@
+type intervals{
+  country:String
+  code:String
+  timestamp:Float
+  gmtoffset:Float
+  datetime:String
+  open:Float
+  high:Float
+  low:Float
+  close:Float
+  volume:Float
+  adjusted_close:Float
+}

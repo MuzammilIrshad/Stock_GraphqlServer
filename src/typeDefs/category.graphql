@@ -1,0 +1,6 @@
+type category {
+  sector_id:String
+  sector:String
+  industry_id:String
+  industry:String
+}

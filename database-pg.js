@@ -12,5 +12,3 @@ export  const client = new Client({
   password: process.env.DB_PASSWORD,
   database: process.env.PRIMARY_DATABASE
 });
-
-
