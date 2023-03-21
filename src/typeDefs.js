@@ -3,7 +3,11 @@ import { gql } from "apollo-server"
 
  const typeDefs = gql `
  type Query{
-    fetchfinancialOverview:[OverView]!
+    fetchfinancialOverview(code:String):[OverView]!
+    categories(sector_id:String):[category]
+    interval_1d:[intervals]
+    interval_1m:[intervals]
+    interval_5m:[intervals]
  }
   type OverView{
     code:String
@@ -45,7 +49,26 @@ import { gql } from "apollo-server"
   country:String            
   ipo_date:String           
   }
-
+  type intervals{
+    country:String
+    code:String
+    timestamp:Float
+    gmtoffset:Float
+    datetime:String
+    open:Float
+    high:Float
+    low:Float
+    close:Float
+    volume:Float
+    adjusted_close:Float
+  }
+  type category {
+    sector_id:String
+    sector:String
+    industry_id:String
+    industry:String
+  }
+ 
 `;
 
 export default typeDefs;
