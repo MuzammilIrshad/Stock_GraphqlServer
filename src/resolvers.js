@@ -5,24 +5,31 @@ const resolvers = {
 
       // ==============> QUERIES <================
       fetchfinancialOverview: async(_, args) =>{
-       const data = await clientQuery(`select * from staging.overview`)
+        console.log(args)
+        var data = null;
+        if(args.limit){
+          data = await clientQuery(`select * from staging.overview limit ${args.limit}`);
+        }else{
+          data = await clientQuery(`select * from staging.overview`);
+        }
         return data.rows
       },
       categories: async(_, args) =>{
-        const SECTOR_ID = args.sector_id ? args.sector_id : ''
         const data = await clientQuery(`select * from staging.category`)
          return data.rows
        },
        interval_1d: async(_, args) =>{
-        const data = await clientQuery(`select * from staging.interval_1d`)
+        const data = await clientQuery(`select * from staging.interval_1d where datetime > '2023-02-24' AND code = 'WAVE' limit 10`)
+        // select * from staging.interval_1d where datetime > '2023-02-24' AND code = 'WAVE'
+
          return data.rows
        },
        interval_1m: async(_, args) =>{
-        const data = await clientQuery(`select * from staging.interval_1m`)
+        const data = await clientQuery(`select * from staging.interval_1m limit 10`)
          return data.rows
        },
        interval_5m: async(_, args) =>{
-        const data = await clientQuery(`select * from staging.interval_5m`)
+        const data = await clientQuery(`select * from staging.interval_5m limit 10`)
          return data.rows
        },
     },

@@ -16,7 +16,7 @@ const categoryTypes = readFileSync(path.join("src/typeDefs/category.graphql"),{
 
 const typeDefs = gql`
   type Query{
-    fetchfinancialOverview(code:String):[OverView]!
+    fetchfinancialOverview(code:String, limit: Int):[OverView]!
     categories(sector_id:String):[category]
     interval_1d:[intervals]
     interval_1m:[intervals]
