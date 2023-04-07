@@ -6,24 +6,20 @@ const overviewTypes = readFileSync(path.join("src/typeDefs/overview.graphql"),{
   encoding: "utf-8",
 });
 
-const intervalsTypes = readFileSync(path.join("src/typeDefs/intervals.graphql"),{
+const earningsTypes = readFileSync(path.join("src/typeDefs/earnings.graphql"),{
   encoding: "utf-8",
 });
 
-const categoryTypes = readFileSync(path.join("src/typeDefs/category.graphql"),{
+const incomeStatementTypes = readFileSync(path.join("src/typeDefs/incomeStatement.graphql"),{
   encoding: "utf-8",
 });
-
 const typeDefs = gql`
   type Query{
-    fetchfinancialOverview(code:String, limit: Int):[OverView]!
-    categories(sector_id:String):[category]
-    interval_1d:[intervals]
-    interval_1m:[intervals]
-    interval_5m:[intervals]
+    earning(date:String):[earnings]
+   
   }
   ${overviewTypes}
-  ${intervalsTypes}
-  ${categoryTypes}`;
+  ${incomeStatementTypes}
+  ${earningsTypes}`;
 
 export default typeDefs;

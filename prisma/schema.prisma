@@ -7,108 +7,113 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-}
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
-model category {
-  sector_id   String? @db.VarChar(4)
-  sector      String? @db.VarChar(32)
-  industry_id String? @db.VarChar(8)
-  industry    String? @db.VarChar(64)
+model earnings {
+  Code    String?
+  History Json?
+  Trend   Json?
+  Annual  Json?
 
   @@ignore
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
-model interval_1d {
-  country        String?
-  code           String?
-  datetime       String?
-  open           Float?
-  high           Float?
-  low            Float?
-  close          Float?
-  adjusted_close Float?
-  volume         BigInt?
+model income_statement {
+  Code            String?
+  currency_symbol String?
+  quarterly       Json?
+  yearly          Json?
 
   @@ignore
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
-model interval_1m {
-  country   String?
-  code      String?
-  timestamp BigInt?
-  gmtoffset BigInt?
-  datetime  String?
-  open      Float?
-  high      Float?
-  low       Float?
-  close     Float?
-  volume    Float?
+model upcoming_earning {
+  code                String?
+  report_date         String?
+  date                String?
+  before_after_market String?
+  currency            String?
+  actual              Float?
+  estimate            Float?
+  difference          Float?
+  percent             Float?
 
   @@ignore
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
-model interval_5m {
-  country   String?
-  code      String?
-  timestamp BigInt?
-  gmtoffset BigInt?
-  datetime  String?
-  open      Float?
-  high      Float?
-  low       Float?
-  close     Float?
-  volume    Float?
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model analyst_ratings {
+// }
 
-  @@ignore
-}
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model balance_sheet {
+// }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
-model overview {
-  code               String?
-  market_cap         Float?
-  revenue            Float?
-  net_income         Float?
-  shares_out         Float?
-  eps                Float?
-  pe_ratio           Float?
-  forward_pe         Float?
-  dividend           Float?
-  exdividend_date    String?
-  volume             String?
-  open               String?
-  previous_close     String?
-  day_range          String?
-  w_range            String? @map("52w_range")
-  beta               Float?
-  analysts           String?
-  price_target       Float?
-  earnings_date      String?
-  employees          Float?
-  industry           String?
-  sector             String?
-  stock_exchange     String?
-  ceo                String?
-  address            String?
-  phone              String?
-  website            String?
-  fiscal_year        String?
-  reporting_currency String?
-  cik_code           String?
-  cusip_number       String?
-  isin_number        String?
-  employer_id        String?
-  sic_code           String?
-  key_executives     String?
-  latest_filings     String?
-  country            String?
-  ipo_date           String?
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model cash_flow {
+// }
 
-  @@ignore
-}
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model esg_scores {
+// }
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model etf {
+// }
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model general {
+// }
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model highlights {
+// }
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model holders {
+// }
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model insider_transactions {
+// }
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model mutualfund {
+// }
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model outstanding_shares {
+// }
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model overview {
+// }
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model raw {
+// }
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model shares_stats {
+// }
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model splits_dividends {
+// }
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model technicals {
+// }
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model upcoming_ipos {
+// }
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model upcoming_splits {
+// }
+
+/// We could not retrieve columns for the underlying table. Either it has none or you are missing rights to see them. Please check your privileges.
+// model valuation {
+// }
