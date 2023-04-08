@@ -2,7 +2,7 @@ import { gql } from "apollo-server"
 import { readFileSync } from "fs";
 import path from "path";
 
-const overviewTypes = readFileSync(path.join("src/typeDefs/overview.graphql"),{
+const upcomingEarningsTypes = readFileSync(path.join("src/typeDefs/upcomingEarnings.graphql"),{
   encoding: "utf-8",
 });
 
@@ -14,12 +14,14 @@ const incomeStatementTypes = readFileSync(path.join("src/typeDefs/incomeStatemen
   encoding: "utf-8",
 });
 const typeDefs = gql`
+  scalar JSON
   type Query{
     earning(date:String):[earnings]
-   
+    incomeStatement(daate:String):[incomeStatement]
+    upcomingEarning(date:String):[upcomingEarnings]
   }
-  ${overviewTypes}
+  ${upcomingEarningsTypes}
   ${incomeStatementTypes}
   ${earningsTypes}`;
 
-export default typeDefs;
+export default typeDefs; 

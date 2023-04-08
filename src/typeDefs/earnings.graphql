@@ -1,50 +1,8 @@
 type earnings{
   Code:String
-  History:[History]
-  Trend:[Trend]
-  Annual:[AnnualDate]
+  History:JSON
+  Trend:JSON
+  Annual:JSON
 }
 
-type History{
-  date:String
-  currency:String
-  epsActual:Float
-  reportDate:String
-  epsEstimate:Float
-  epsDifference:Float
-  surprisePercent:Float
-  beforeAfterMarket:String
-}
-type Trend{
-  date:String
-  growth:String
-  period:String
-  epsTrendCurrent:String
-  epsTrend7daysAgo:String
-  epsTrend30daysAgo:String
-  epsTrend60daysAgo:String
-  epsTrend90daysAgo:String
-  revenueEstimateAvg:String
-  revenueEstimateLow:String
-  earningsEstimateAvg:String
-earningsEstimateLow:String
-revenueEstimateHigh:String
-revenueEstimateGrowth:String
-earningsEstimateGrowth:String
-epsRevisionsUpLast7days:String
-epsRevisionsUpLast30days:String
-epsRevisionsDownLast7days:String
-epsRevisionsDownLast30days:String
-revenueEstimateYearAgoEps:String
-earningsEstimateYearAgoEps:String
-revenueEstimateNumberOfAnalysts:String
-earningsEstimateNumberOfAnalysts:String
-}
 
-type AnnualDate{
-   date:Date
-}
-type Date{
-  date:String
-  epsActual:String
-}

@@ -1,6 +1,7 @@
-type category {
-  sector_id:String
-  sector:String
-  industry_id:String
-  industry:String
+type incomeStatement{
+   Code:String
+   currency_symbol:String
+   quarterly:JSON
+   yearly:JSON
+
 }

@@ -1,0 +1,11 @@
+type upcomingEarnings{
+  code:String
+  report_date:String
+  date:String
+  before_after_market:String
+  currency:String
+  actual:Float
+  estimate:Float
+  difference:Float
+   percent:Float
+}

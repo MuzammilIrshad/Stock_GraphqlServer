@@ -6,8 +6,18 @@ const resolvers = {
       // ==============> QUERIES <================
      
       earning: async(_, args) =>{
-        const data = await clientQuery(`select "Annual" from us.earnings limit 1`)
-         console.log(data.rows);
+        const data = await clientQuery(`select * from us.earnings limit 2`)
+         console.log(data);
+         return [...data.rows]
+       },
+       incomeStatement: async(_, args) =>{
+        const data = await clientQuery(`select * from us.income_statement`)
+         console.log(data);
+         return [...data.rows]
+       },
+       upcomingEarning: async(_, args) =>{
+        const data = await clientQuery(`select * from us.upcoming_earning`)
+         console.log(data);
          return [...data.rows]
        },
       //  interval_1d: async(_, args) =>{
