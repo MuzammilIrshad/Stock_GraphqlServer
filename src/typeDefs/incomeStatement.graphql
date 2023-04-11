@@ -3,5 +3,5 @@ type incomeStatement{
    currency_symbol:String
    quarterly:JSON
    yearly:JSON
-
+   quarter: JSON
 }
