@@ -6,8 +6,11 @@ const resolvers = {
       // ==============> QUERIES <================
      
       earning: async(_, args) =>{
-        const data = await clientQuery(`select * from us.earnings WHERE "Code" = 'AA' limit 2`)
-         return [...data.rows]
+        console.log(args)
+        const {code:Code, limit} = args
+        const data = await clientQuery(`select * from us.earnings ${args.code ? `WHERE Code = ${args.code}` : ""}${args.limit > 0 ? ` limit ${args.limit}` : ""}`);
+       console.log(data)
+        return [...data.rows]
        },
        incomeStatement: async(_, args) =>{
           const {quarter, limit, code, year} = args;
@@ -15,7 +18,7 @@ const resolvers = {
           return (await clientQuery(`select "Code", "currency_symbol", "quarterly", "yearly", quarterly->'${date[quarter]}' AS quarter from us.income_statement where quarterly->'${date[quarter]}'->>'date' = '${date[quarter]}'${code ? ` AND "Code" ='${args.code}'` : ""}${limit ? ` limit ${args.limit}` : ""}`)).rows;
        },
        upcomingEarning: async(_, args) =>{
-        const data = await clientQuery(`select * from us.upcoming_earning where "code" = 'AA'`)
+        const data = await clientQuery(`select * from us.upcoming_earning ${args.code ? `where code = ${args.code}`:""}limit 2`)
          return [...data.rows]
        },
       //  interval_1d: async(_, args) =>{

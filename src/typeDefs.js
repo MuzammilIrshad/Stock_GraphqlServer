@@ -16,9 +16,9 @@ const incomeStatementTypes = readFileSync(path.join("src/typeDefs/incomeStatemen
 const typeDefs = gql`
   scalar JSON
   type Query{
-    earning(date:String):[earnings]
+    earning(code:String, limit:Int):[earnings]
     incomeStatement(quarter: Int,year:String, code: String):[incomeStatement]
-    upcomingEarning(date:String):[upcomingEarnings]
+    upcomingEarning(code:String):[upcomingEarnings]
   }
   ${upcomingEarningsTypes}
   ${incomeStatementTypes}
