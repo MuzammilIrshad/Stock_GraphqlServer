@@ -18,7 +18,7 @@ const typeDefs = gql`
   type Query{
     earning(code:String, limit:Int):[earnings]
     incomeStatement(quarter: Int,year:String, code: String):[incomeStatement]
-    upcomingEarning(code:String):[upcomingEarnings]
+    upcomingEarning(code: String):[upcomingEarnings]
   }
   ${upcomingEarningsTypes}
   ${incomeStatementTypes}
