@@ -17,7 +17,7 @@ const typeDefs = gql`
   scalar JSON
   type Query{
     earning(code:String, limit:Int):[earnings]
-    incomeStatement(quarter: Int,year:String, code: String):[incomeStatement]
+    incomeStatement(yearly_date: String, quarterly_date:String, code: String, limit: Int):[incomeStatement]
     upcomingEarning(code: String):[upcomingEarnings]
   }
   ${upcomingEarningsTypes}
