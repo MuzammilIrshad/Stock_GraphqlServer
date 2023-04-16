@@ -15,7 +15,8 @@ const resolvers = {
        incomeStatement: async(_, args) =>{
           const {quarter, limit, code, year} = args;
           const date = ["",`${year}-01-31`, `${year}-04-30`, `${year}-07-31`, `${year}-10-31`];
-          return (await clientQuery(`select "Code", "currency_symbol", "quarterly", "yearly", quarterly->'${date[quarter]}' AS quarter from us.income_statement where quarterly->'${date[quarter]}'->>'date' = '${date[quarter]}'${code ? ` AND "Code" ='${code}'` : ""}${limit ? ` limit ${limit}` : ""}`)).rows;
+          console.log(`select "Code", "currency_symbol", "quarterly", "yearly", quarterly->'${date[quarter]}' AS quarter from us.income_statement ${date[quarter] ? ` where quarterly->'${date[quarter]}'->>'date' = '${date[quarter]}'` : "" } ${code && date[quarter] ? ` AND "Code" ='${code}'` : code ? ` WHere "Code" ='${code}'` : ""}${limit ? ` limit ${limit}` : ""}`);
+          return (await clientQuery(`select "Code", "currency_symbol", "quarterly", "yearly", quarterly->'${date[quarter]}' AS quarter from us.income_statement ${date[quarter] ? ` where quarterly->'${date[quarter]}'->>'date' = '${date[quarter]}'` : "" } ${code && date[quarter] ? ` AND "Code" ='${code}'` : code ? ` WHere "Code" ='${code}'` : ""}${limit ? ` limit ${limit}` : ""}`)).rows;
        },
        upcomingEarning: async(_, args) =>{
         const data = await clientQuery(`select * from us.upcoming_earning ${args.code ? `where code = ${args.code}`:""}limit 2`)
